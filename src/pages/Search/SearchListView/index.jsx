@@ -7,7 +7,7 @@ const SearchListView = (props) => {
             {
                 props.searchRes.map((item, index) => {
                     return (
-                        <Item data={item} key={index}></Item>
+                        <Item data={item} key={item.id}></Item>
                     )
                 })
             }

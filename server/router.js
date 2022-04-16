@@ -26,6 +26,25 @@ router.get("/home/hot2", (req, res) => {
     })
 })
 
+router.get("/home/hot3", (req, res) => {
+    const cityName = url.parse(req.url, true).query.cityName
+    const data = new Array(20).fill(0).map(() => {
+        return Mock.mock({
+            "id": Random.id(),
+            "title": cityName + '-' + Random.ctitle(3, 5),
+            "houseType": "17/19层| 4室1厅 - 273.97 ㎡",
+            "price": Random.integer(10, 30) * 100,
+            "rentType": "整租",
+            "src": Random.image(`175x${Random.integer(150, 300)}`, Random.color(), '#FFF', 'WarmHoom')
+        })
+    })
+    res.send({
+        status: 200,
+        // result: homehot[cityName].hot2
+        result: data
+    })
+})
+
 router.get('/search', (req, res) => {
     const keywords = url.parse(req.url, true).query.keywords
     // console.log(req.url);
@@ -37,7 +56,7 @@ router.get('/search', (req, res) => {
             "houseType": "17/19层| 4室1厅 - 273.97 ㎡",
             "price": "<h3>130000</h3>",
             "rentType": "整租",
-            "img": Random.image('800x600', Random.color(), '#FFF', keywords)
+            "src": Random.image('800x600', Random.color(), '#FFF', keywords)
         })
     })
     const dataSearch = Mock.mock({

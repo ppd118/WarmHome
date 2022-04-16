@@ -5,6 +5,7 @@ const base = {
     baseUrl: "http://localhost:5566",
     homehot1: "/api/home/hot1",
     homehot2: "/api/home/hot2",
+    homehot3: "/api/home/hot3",
     cityData: "/api/aj/getcitycode",
     search: "/api/search",
     details: "/api/details",
@@ -21,6 +22,11 @@ const api = {
     },
     getHomeHot2(params) {
         return axios.get(base.baseUrl + base.homehot2, {
+            params
+        })
+    },
+    getHomeHot3(params) {
+        return axios.get(base.baseUrl + base.homehot3, {
             params
         })
     },
