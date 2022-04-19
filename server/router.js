@@ -35,7 +35,7 @@ router.get("/home/hot3", (req, res) => {
             "houseType": "17/19层| 4室1厅 - 273.97 ㎡",
             "price": Random.integer(10, 30) * 100,
             "rentType": "整租",
-            "src": Random.image(`175x${Random.integer(150, 300)}`, Random.color(), '#FFF', 'WarmHoom')
+            "src": Random.image(`200x${Random.integer(150, 300)}`, Random.color(), '#FFF', "WarmHome")
         })
     })
     res.send({
@@ -56,7 +56,7 @@ router.get('/search', (req, res) => {
             "houseType": "17/19层| 4室1厅 - 273.97 ㎡",
             "price": "<h3>130000</h3>",
             "rentType": "整租",
-            "src": Random.image('800x600', Random.color(), '#FFF', keywords)
+            "img": Random.image('800x600', Random.color(), '#FFF', keywords)
         })
     })
     const dataSearch = Mock.mock({

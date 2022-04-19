@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Waterfall from "../../../../components/Waterfall";
 import LoadMore from "../../../../components/LoadMore"
+import Loading from "../../../../components/Loading";
 import api from "../../../../api";
+
+
 const HomeWaterfall = (props) => {
     const [waterfallData, setWaterfallData] = useState([])
     useEffect(() => {
@@ -21,7 +24,6 @@ const HomeWaterfall = (props) => {
         api.getHomeHot3({
             cityName: props.cityName
         }).then(res => {
-            console.log(res.data.result)
             setWaterfallData([...waterfallData, ...res.data.result])
         })
     }
@@ -35,7 +37,7 @@ const HomeWaterfall = (props) => {
                         <Waterfall data={waterfallData} />
                         <LoadMore onLoadMore={loadMoreHandle} />
                     </Fragment>
-                    : <div>数据加载中... </div>
+                    : <Loading />
             }
 
         </div>
