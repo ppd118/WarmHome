@@ -3,18 +3,13 @@ import "./style.less"
 
 const Loading = () => {
     return (
-        <div className="loading-container">
+        <div className="load-container">
             <div className="loader">
-                <span className="ball" style={{ '--i': 1 }}></span>
-                <span className="shadow" style={{ '--i': 1 }}></span>
-                <span className="ball" style={{ '--i': 2 }}></span>
-                <span className="shadow" style={{ '--i': 2 }}></span>
-                <span className="ball" style={{ '--i': 3 }}></span>
-                <span className="shadow" style={{ '--i': 3 }}></span>
-                <span className="ball" style={{ '--i': 4 }}></span>
-                <span className="shadow" style={{ '--i': 4 }}></span>
-                <span className="ball" style={{ '--i': 5 }}></span>
-                <span className="shadow" style={{ '--i': 5 }}></span>
+                <div style={{ '--i': 0 }}></div>
+                <div style={{ '--i': 1 }}></div>
+                <div style={{ '--i': 2 }}></div>
+                <div style={{ '--i': 3 }}></div>
+                <div style={{ '--i': 4 }}></div>
             </div>
         </div>
     )

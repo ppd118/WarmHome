@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, memo } from "react";
-import Loading from "../Loading"
+import Loading from "../Loading";
 import useThrottle from "../../utils/throttle";
-import "./style.less"
+
 
 const LoadMore = (props) => {
     let more = useRef()
@@ -26,10 +26,10 @@ const LoadMore = (props) => {
 
 
     return (
-
-        <div ref={more} className="load">
+        <div ref={more} >
             <Loading />
         </div>
+
     )
 }
 

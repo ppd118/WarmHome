@@ -1,80 +1,65 @@
-.loading-container{
-    /* 100%窗口高度 */
-    width: 200px;
-    height: 40px;
-    /* 弹性布局 水平+垂直居中 */
+.load-container{
+    height: 100px;
+    width: 100%;
     display: flex;
+    // 水平居中对齐
     justify-content: center;
     align-items: center;
-    // background-color: #333;
-}
-.loader{
-    // height: 30px;
-    align-self: center;
-    // top:50%;
-    // right:50%;
-    // transform: translate(50%,50%);
-    /* 相对定位 */
-    position: relative;
-    & span{
-        // 小球
-        &.ball{
+    background-color: #fff;
+
+    .loader{
+        width: 55px;
+        position: relative;
+        height: 50px;
+
+        div{
             width: 10px;
             height: 10px;
-            border-radius: 50%;
-            background-color: lightseagreen;
-            /* 绝对定位 */
-            position: absolute;
-            /* 通过var函数调用自定义属性--i，计算出每个小球的位置 */
-            left: calc(var(--i) * 20px);
-            /* 执行动画：动画名 时长 线性的 无限次播放 利用变量让小球的运动拉开时间 */
-            animation: jump 2s linear infinite calc(var(--i) * 0.3s);
-        }
-
-         // 小球阴影
-        &.shadow{
-            width: 8px;
-            height: 5px;
-            border-radius: 50%;
-            background-color: #000;
-            position: absolute;
-            left: calc(var(--i) * 20px);
-            bottom: -1px;
-            z-index: -1;
-            animation: shadow 2s linear infinite calc(var(--i) * 0.3s);
+            background-color: #e79796;
+            position:absolute;
+            left:calc(var(--i)*10px);
+            animation: move 2s linear infinite;
+            animation-delay: calc(var(--i)*-400ms);
         }
     }
-   
 }
 
-/* 定义动画 */
-/* 小球跳动的动画 */
-@keyframes jump {
-    0%,100%{
-        bottom: 15px;
+@keyframes move{
+    0%{
+        /* 5个方块，每个宽度30，所以这里为5*10=50 */
+        left: 50px;
+        top: 0;
     }
-    40%,60%{
-        bottom: 0;
-        height: 5px;
+    80%{
+        left: 0;
+        top: 0;
     }
-    50%{
-        height: 2px;
-        /* 加个颜色滤镜，改变小球的颜色 */
-        /* 可以设置不同的度数来改变颜色 */
-        filter: hue-rotate(180deg);
+    85%{
+        left: 0;
+        top: -10px;
+        width: 10px;
+        height: 10px;
     }
-}
-/* 小球阴影的变化 */
-@keyframes shadow {
-    0%,100%{
-        transform: scale(2);
-        opacity: 0.1;
-        /* 模糊滤镜 */
-        filter: blur(1px);
+    88%{
+        left: 0;
+        top: -10px;
     }
-    40%,60%{
-        transform: scale(1);
-        opacity: 0.5;
-        filter: blur(0.5px);
+    90%{
+        width: 20px;
+        height: 15px;
+    }
+    95%{
+        left: 50px;
+        top: -10px;
+        width: 10px;
+        height: 10px;
+    }
+    98%{
+        left: 50px;
+        top: -10px;
+    }
+    100%{
+        left: 50px;
+        top: 0;
     }
 }

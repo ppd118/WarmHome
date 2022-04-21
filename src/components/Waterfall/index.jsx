@@ -21,7 +21,7 @@ const Waterfall = (props) => {
         })
         setLeftData(left)
         setRightData(right)
-    }, [])
+    }, [props.data])
 
     return (
         <Fragment>

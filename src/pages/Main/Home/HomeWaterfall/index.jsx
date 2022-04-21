@@ -37,7 +37,9 @@ const HomeWaterfall = (props) => {
                         <Waterfall data={waterfallData} />
                         <LoadMore onLoadMore={loadMoreHandle} />
                     </Fragment>
-                    : <Loading />
+                    :
+                    <div>没有数据咯...</div>
+                // <Loading />
             }
 
         </div>
