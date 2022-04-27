@@ -45,6 +45,7 @@ router.get("/home/hot3", (req, res) => {
     })
 })
 
+//搜索
 router.get('/search', (req, res) => {
     const keywords = url.parse(req.url, true).query.keywords
     // console.log(req.url);
@@ -71,6 +72,20 @@ router.get('/search', (req, res) => {
         result: dataSearch
     })
 
+})
+
+//搜索提示
+router.get('/searchBlur', (req, res) => {
+    const keywords = url.parse(req.url, true).query.keywords
+    const data = new Array(5).fill(0).map(() => {
+        return Mock.mock({
+            "keywords": keywords + Random.ctitle(3, 5)
+        })
+    })
+    res.send({
+        status: 200,
+        data: data
+    })
 })
 
 

@@ -8,6 +8,7 @@ const base = {
     homehot3: "/api/home/hot3",
     cityData: "/api/aj/getcitycode",
     search: "/api/search",
+    search_blur: "/api/searchBlur",
     details: "/api/details",
     login: "/api/login"
 }
@@ -36,8 +37,14 @@ const api = {
     },
     // 搜索结果
     getSearchResult(params) {
-        // console.log(params)
+
         return axios.get(base.baseUrl + base.search, {
+            params
+        })
+    },
+    getSearchBlurResult(params) {
+
+        return axios.get(base.baseUrl + base.search_blur, {
             params
         })
     },
@@ -51,7 +58,6 @@ const api = {
 
     // 登录
     login(params) {
-        // console.log(params)
         return axios.post(base.baseUrl + base.login, params)
     }
 

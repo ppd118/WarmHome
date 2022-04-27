@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, Fragment } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import * as actions from "../../redux/actions/index"
+import api from "../../api";
 import "./style.less"
 
 
@@ -9,8 +10,6 @@ const SearchInput = () => {
     const navigate = useNavigate()
     const [keywords, setKeywords] = useState('')
     const param = useParams()
-    // const input_keywords = useRef()
-    // const reduxKeywords = useSelector(state => state.search)
     const disPatch = useDispatch()
     function keyUpHandle(e) {
         if (keywords.length > 0) {
@@ -28,22 +27,20 @@ const SearchInput = () => {
             setKeywords(param.keywords)
         } else {
             disPatch(actions.updateKeywords(""))
-            // setKeywords("")
         }
 
     }, [param.keywords])
 
     function onChangeHandle(e) {
         setKeywords(e.target.value)
+        disPatch(actions.updateKeywords(e.target.value))
     }
     return (
         <input type="text"
             className="search-input"
-            // ref={input_keywords}
             value={keywords}
             onKeyUp={keyUpHandle}
             onChange={onChangeHandle} />
-
     )
 }
 
